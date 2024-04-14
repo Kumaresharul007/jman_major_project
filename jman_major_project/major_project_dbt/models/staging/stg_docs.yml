@@ -1,0 +1,184 @@
+version: 2
+
+models:
+  - name: stg_admin
+    description: This table contains the admin login details 
+
+    columns:
+      - name: id
+        description: This is a unique identifier
+        tests:
+          - unique
+          - not_null
+
+      - name: username
+        quote: true
+        description: The username of the admin
+        tests:
+          - unique
+          - not_null
+      
+      - name: password
+        quote: true
+        description: The password of the admin
+        tests:
+          - not_null
+      
+  - name: stg_assessments
+    description: This table contains the assessment scores of the trainees
+    columns:
+      - name: id
+        description: This is a unique identifier
+        tests:
+          - unique
+          - not_null
+
+      - name: email
+        quote: true
+        description: The email address of the trainee (intern or employee)
+        tests:
+          - not_null
+
+      - name: designation
+        quote: true
+        description: The designation of the trainee
+        tests:
+          - not_null
+
+      - name: training_name
+        quote: true
+        description: The training name which is provided to the trainee
+        tests:
+          - not_null
+
+      - name: score
+        description: The assessment score secured by the trainee
+        tests:
+          - not_null
+
+  - name: stg_completed_hours
+    description: This table contains the hours taken by the user to complete the training
+
+    columns:
+      - name: id
+        description: This is a unique identifier
+        tests:
+          - unique
+          - not_null
+
+      - name: email
+        quote: true
+        description: The email address of the trainee (intern or employee)
+        tests:
+          - not_null
+
+      - name: designation
+        quote: true
+        description: The designation of the trainee
+        tests:
+          - not_null
+
+      - name: training_name
+        quote: true
+        description: The training name which is provided to the trainee
+        tests:
+          - not_null
+
+      - name: hours
+        description: The no. of hours taken by the trainee to complete the training
+        tests:
+          - not_null
+
+      - name: total_hours
+        description: The total hours allocated for the training to the trainees
+        tests:
+          - not_null
+
+
+  - name: stg_training_plans
+    description: This table contains the training plan details created by the admin
+
+    columns:
+      - name: id
+        description: This is a unique identifier
+        tests:
+          - unique
+          - not_null
+
+      - name: designation
+        quote: true
+        description: The designation of the trainee
+        tests:
+          - not_null
+
+      - name: training_name
+        quote: true
+        description: The training name which is provided to the trainee
+        tests:
+          - not_null
+
+      - name: trainer_name
+        quote: true
+        description: The trainer name for that particular training
+        tests:
+          - not_null
+
+      - name: start_date
+        description: The start date of the training
+        tests:
+          - not_null
+
+      - name: end_date
+        description: The end date of the training
+        tests:
+          - not_null
+
+      - name: no_of_days
+        description: The no of days allocated for the particular training
+        tests:
+          - not_null
+
+
+  - name: stg_users
+    description: This table contains the user details
+
+    columns:
+      - name: id
+        description: This is a unique identifier
+        tests:
+          - unique
+          - not_null
+
+      - name: first_name
+        quote: true
+        description: This is a firstname of the trainee
+        tests:
+          - not_null
+
+      - name: last_name
+        quote: true
+        description: This is a lastname of the trainee
+        tests:
+          - not_null
+
+      - name: email
+        quote: true
+        description: The email address of the trainee (intern or employee)
+        tests:
+          - unique
+          - not_null
+
+      - name: pass
+        description: The password of the trainee
+        tests:
+          - not_null
+
+      - name: new_user
+        description: This column checks whether the trainee is a new user or not
+        tests:
+          - not_null
+
+      - name: designation
+        description: This holds the designation of the trainee
+        tests:
+          - not_null

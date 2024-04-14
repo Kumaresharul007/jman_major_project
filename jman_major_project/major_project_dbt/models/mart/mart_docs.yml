@@ -1,0 +1,123 @@
+version: 2
+
+models:
+  - name: admin
+    description: This table contains the admin login details 
+
+    columns:
+      - name: id
+        description: This is a unique identifier
+        tests:
+          - unique
+          - not_null
+
+      - name: username
+        quote: true
+        description: The username of the admin
+        tests:
+          - unique
+          - not_null
+      
+      - name: password
+        quote: true
+        description: The password of the admin
+        tests:
+          - not_null
+      
+  - name: avg_assessment_score
+    description: This table contains the assessment scores of the trainees
+    columns:
+
+      - name: email
+        quote: true
+        description: The email address of the trainee (intern or employee)
+        tests:
+          - not_null
+
+      - name: avg_assessment_score
+        description: The average assessment score taken by the trainee in all the trainings
+        tests:
+          - not_null
+
+  - name: avg_completed_hours
+    description: This table contains the average hours taken by the trainee to complete all the trainings
+
+    columns:
+
+      - name: email
+        quote: true
+        description: The email address of the trainee (intern or employee)
+        tests:
+          - not_null
+
+      - name: avg_hours_to_complete
+        description: The average hours taken by the trainee to complete all the trainings
+        tests:
+          - not_null
+
+
+  - name: completion_efficiency
+    description: This table checks how efficient is the trainee to complete the particular training
+
+    columns:
+      - name: email
+        quote: true
+        description: This is a unique identifier
+        tests:
+          - unique
+          - not_null
+
+      - name: hours_to_complete
+        description: No. of hours taken by the trainee to complete the particular trianing
+        tests:
+          - not_null
+
+      - name: status
+        description: This column checks whether the trainee has completed the training ontime or not based on the total hours allocated for the training
+        tests:
+          - not_null
+
+
+  - name: trainer_duration
+    description: This table contains the total no. of hours and average no. of hours assigned to the trainers to provide training to the trainees
+
+    columns:
+      - name: trainer_name
+        quote: true
+        description: This column holds the trainer name of the particular training
+        tests:
+          - not_null
+
+      - name: total_training_duration
+        description: This column contains the total hours taken by the trainers to train the trainees
+        tests:
+          - not_null
+
+      - name: avg_training_duration
+        description: This column contains the average hours taken by the trainers to train the trainees
+        tests:
+          - not_null
+
+  - name: users
+    description: This table contains the count of employees and interns with some metrics
+
+    columns:
+      - name: total_employees
+        description: This column holds the total employees engaged in the training platform
+        tests:
+          - not_null
+
+      - name: total_interns
+        description: This column holds the total interns engaged in the training platform
+        tests:
+          - not_null
+
+      - name: new_users_in_employees
+        description: This column holds the total no.of new users in employee trainees engaged in the training platform
+        tests:
+          - not_null
+
+      - name: new_users_in_interns
+        description: This column holds the total no.of new users in intern trainees engaged in the training platform
+        tests:
+          - not_null

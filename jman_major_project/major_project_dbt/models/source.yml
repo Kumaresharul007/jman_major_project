@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: etms
+    database: major_project_db
+    schema: dbo
+    tables:
+      - name: admin
+      - name: users
+      - name: assessments
+      - name: completed_hours
+      - name: training_plans
+     
